@@ -1,0 +1,24 @@
+<div class="uk-padding">
+    <div *ngFor="let transaction of transactions">
+        <div class="transaction-row ec-cursor-pointer" [class.focus]="transaction == focusedTransaction" (click)="focusTransaction(transaction)" uk-grid>
+            <div class="uk-width-auto ec-cursor-pointer hover-icon">
+                <div><mat-icon (click)="service.openEditTransactionDialog(transaction)">edit</mat-icon></div>
+                <div><mat-icon class="uk-text-danger" (click)="service.openDeleteTransactinDialog(transaction)">delete</mat-icon></div>
+            </div>
+            <div class="uk-width-expand">
+                <div class="uk-text-bold">
+                    {{transaction.category}}
+                </div>
+                <div>
+                    {{transaction.description}}
+                </div>
+            </div>
+            <div class="uk-width-auto" [class.uk-text-success]="transaction.type == 'INCOME'" [class.uk-text-danger]="transaction.type == 'EXPENSE'">
+                <span *ngIf="transaction.type == 'EXPENSE'">-</span>
+                &#8377; {{transaction.amount}}
+            </div>
+        </div>
+        <hr/>
+    </div>
+</div>
+    

@@ -1,0 +1,84 @@
+@import '../../assets/themes/default.scss';
+
+.top-bar{
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+.toolbar-filler{
+    flex: 1 1 auto;
+}
+.profile-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+.bottom-bar{
+    position: fixed;
+    bottom: 0;
+    padding: 0;
+    z-index: 1;
+}
+.bottom-bar div{
+    flex-grow: 5;
+    height: 100%;
+    text-align: center;
+}
+.bottom-bar mat-icon{
+    font-size: 35px;
+    margin-top: 10px;
+}
+.center-button{
+    position: fixed;
+    bottom: 25px;
+    margin-left: calc(50% - 28px);
+    z-index: 1;
+}
+.center-button button{
+    font-size: 25px;
+}
+.app-logo{
+    width: 55px;
+    height: 55px;
+    background: #eee;
+    border-radius: 50px;
+    box-shadow: inset -1px 0px 2px 1px #0009;
+    margin-right: 15px;
+    padding: 10px 5px 0px 5px;
+}
+.side-bar{
+    padding-top: 15px;
+    width: 200px;
+}
+.side-bar-item{
+    outline: 0;
+}
+.side-bar-item:hover{
+    background: #eaeaea;
+    cursor: pointer;
+}
+.side-bar-item.selected{
+    border-left: 5px mat-color($default-app-primary) solid;
+    background: mat-color($default-app-primary, 100);
+}
+.mat-drawer-container.mat-sidenav-container{
+    height: 100%;
+}
+@media (max-width: 599px){
+    .side-bar{
+        width: 80%;
+    }
+    .mat-drawer-container.mat-sidenav-container{
+        height: calc(100% - 56px);
+    }
+    .app-logo{
+        width: 50px;
+        height: 50px;
+        margin-left: 15px;
+    }
+}
+.side-bar-bottom{
+    position: absolute;
+    bottom: 0;
+    display: inline-flex;
+}

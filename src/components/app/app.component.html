@@ -1,0 +1,48 @@
+<mat-toolbar color="primary" class="top-bar ec-disable-select mat-elevation-z2">
+  <mat-icon *ngIf="deviceType == 'MOBILE'" class="ec-cursor-pointer" (click)="sidebar.toggle()">menu</mat-icon>
+  <img class="app-logo" src="assets/images/logo.png"/>
+  <span>{{selectedPortal?.name}}</span>
+  <div class="toolbar-filler"></div>
+  <div *ngIf="deviceType != 'MOBILE'" class="ec-cursor-pointer">
+    <img class="profile-image" src="{{currentUser?.profileImage}}"/>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav
+    #sidebar
+    class="side-bar ec-title-margin-top mat-elevation-z2"
+    [opened]="deviceType != 'MOBILE'"
+    [mode]="deviceType == 'MOBILE' ? 'push' : 'side'"
+    fixedInViewport="true"
+    [disableClose]="deviceType != 'MOBILE'"
+  >
+    <div 
+      *ngFor="let wallet of wallets"
+      class="side-bar-item uk-text-truncate uk-padding-small ec-cursor-pointer"
+      [class.selected]="wallet.id == selectedWallet.id"
+      [routerLink]="['portals',selectedPortal?.id,'wallets',wallet.id]"
+      (click)="deviceType == 'MOBILE' ? sidebar.toggle() : ''"
+    >{{wallet.name}}</div>
+    <a href="https://forms.gle/8SEKAPjE3Tkh6uta7" target="_blank">
+      <div class="side-bar-item side-bar-bottom uk-padding-small uk-text-truncate">
+        <mat-icon>feedback</mat-icon><span> Feedback</span>
+      </div>
+    </a>
+  </mat-sidenav>
+  <mat-sidenav-content class="main-content ec-title-margin-top">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<mat-toolbar *ngIf="deviceType == 'MOBILE'" color="primary" class="bottom-bar mat-elevation-z8">
+  <div class="block ec-disable-select" matRipple [routerLink]="['portals',selectedPortal?.id,'wallets',selectedWallet?.id,'transactions']">
+    <mat-icon inline="true">subject</mat-icon>
+  </div>
+  <div class="block ec-disable-select" matRipple [routerLink]="['portals',selectedPortal?.id,'wallets',selectedWallet?.id,'chart']"> 
+    <mat-icon inline="true">pie_chart</mat-icon>
+  </div>
+</mat-toolbar>
+<div *ngIf="deviceType == 'MOBILE'" class="center-button ec-disable-select" [routerLink]="['portals',selectedPortal?.id,'wallets',selectedWallet?.id,'details']">
+  <button mat-fab color="accent" class="mat-elevation-z8">
+    <mat-icon>home</mat-icon>
+  </button>
+</div>

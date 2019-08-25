@@ -1,0 +1,13 @@
+<ng-container *ngIf="deviceType != 'MOBILE'">
+    <mat-sidenav-container>
+        <mat-sidenav class="mat-elevation-z2 ec-title-margin-top ec-width-50" opened mode="side" fixedInViewport="true" fixedToGap="64" disableClose="true">
+            <div>
+                <app-wallet-details></app-wallet-details>
+            </div>
+            <div>
+                <app-wallet-chart></app-wallet-chart>
+            </div>
+        </mat-sidenav>
+        <app-wallet-transactions></app-wallet-transactions>
+    </mat-sidenav-container>
+</ng-container>

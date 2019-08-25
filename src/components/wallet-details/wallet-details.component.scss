@@ -1,0 +1,14 @@
+@import '../../assets/themes/default.scss';
+
+.transaction-buttons .gap{
+    display: inline-block;
+    width: 30px;
+}
+.income-button{
+    background-color: mat-color($mat-green, 500) !important;
+    color: mat-color($mat-gray, 50) !important;
+}
+.expense-button{
+    background-color: mat-color($mat-red, 500) !important;
+    color: mat-color($mat-gray, 50) !important;
+}

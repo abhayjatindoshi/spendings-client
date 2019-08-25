@@ -1,0 +1,7 @@
+<div mat-dialog-content>
+    <p>You are about to delete a transaction. Deleted transaction cannot be recovered. Are you sure you want to proceed ?</p>
+</div>
+<div mat-dialog-actions class="delete-actions">
+    <button mat-button matDialogClose>Cancel</button>
+    <button mat-flat-button color="warn" cdkFocusInitial (click)="deleteTransaction()">DELETE</button>
+</div>

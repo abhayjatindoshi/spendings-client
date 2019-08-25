@@ -1,0 +1,36 @@
+@import '../../assets/themes/default.scss';
+
+.transaction-type-toggle{
+    width: 100%;
+}
+.transaction-type-toggle mat-button-toggle{
+    width: 50%;
+}
+.transaction-type-toggle .mat-button-toggle-checked{
+    color: mat-color($mat-gray,100);
+}
+
+.transaction-type-toggle .mat-button-toggle-checked[value="INCOME"]{
+    background-color: mat-color($mat-green,500);
+}
+
+.transaction-type-toggle .mat-button-toggle-checked[value="EXPENSE"]{
+    background-color: mat-color($mat-red,500);
+}
+
+@media (min-width: 599px){
+    .transaction-form button{
+        display: block;
+        margin: 0 auto;
+    }
+    
+    .transaction-form .half-width{
+        width: 48%;
+        display: inline-block;
+    }
+    
+    .transaction-form .half-width-gap{
+        width: 2%;
+        display: inline-block;
+    }
+}

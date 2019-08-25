@@ -1,0 +1,48 @@
+<form class="transaction-form" [formGroup]="transactionForm" (ngSubmit)="formSubmit()">
+    <div mat-dialog-content>
+        <div>
+            <mat-button-toggle-group class="transaction-type-toggle" formControlName="type">
+                <mat-button-toggle value="INCOME">INCOME</mat-button-toggle>
+                <mat-button-toggle value="EXPENSE">EXPENSE</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+        <br/>
+        <div>
+            <div class="half-width">
+                <mat-form-field appearance="outline">
+                    <mat-label>Amount</mat-label>
+                    <input matInput id="amount" formControlName="amount" type="number" required cdkFocusInitial/>
+                    <mat-error *ngIf="form.amount.invalid && form.amount.errors.required">
+                        Numeric value is required
+                    </mat-error>
+                    <mat-error *ngIf="form.amount.invalid && form.amount.errors.min">
+                        Amount should be greater than 0
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="half-width-gap"></div>
+            <div class="half-width">
+                <mat-form-field appearance="outline">
+                    <mat-label>Category</mat-label>
+                    <input type="text" formControlName="category" required matInput [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let category of filteredCategories | async" [value]="category">{{category}}</mat-option>
+                    </mat-autocomplete>
+                    <mat-error *ngIf="form.category.invalid && form.category.errors.required">
+                        Category is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>  
+        <div>
+            <mat-form-field appearance="outline">
+                <textarea matInput placeholder="Description" formControlName="description"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <div class="uk-width-1-1">
+            <button mat-raised-button color="accent" class="uk-align-center">Submit</button>
+        </div>
+    </div>
+</form>

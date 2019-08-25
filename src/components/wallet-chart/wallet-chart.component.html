@@ -1,0 +1,40 @@
+<div class="uk-padding">
+    <div uk-grid>
+        <div class="uk-width-1-3">
+            <mat-select [(value)]="selectedChartOptions.type" (selectionChange)="updateChart()">
+                <mat-option value="INCOME">INCOME</mat-option>
+                <mat-option value="EXPENSE">EXPENSE</mat-option>
+            </mat-select>
+        </div>
+        <div class="uk-width-1-3">
+            <mat-select [(value)]="selectedChartOptions.month" (selectionChange)="updateChart()">
+                <mat-option value="JAN">January</mat-option>
+                <mat-option value="FEB">Febuary</mat-option>
+                <mat-option value="MAR">March</mat-option>
+                <mat-option value="APR">April</mat-option>
+                <mat-option value="MAY">May</mat-option>
+                <mat-option value="JUN">June</mat-option>
+                <mat-option value="JUL">July</mat-option>
+                <mat-option value="AUG">August</mat-option>
+                <mat-option value="SEP">September</mat-option>
+                <mat-option value="OCT">October</mat-option>
+                <mat-option value="NOV">November</mat-option>
+                <mat-option value="DEC">December</mat-option>
+            </mat-select>
+        </div>
+        <div class="uk-width-1-3">
+            <mat-select [(value)]="selectedChartOptions.year" (selectionChange)="updateChart()">
+                <mat-option value="2019">2019</mat-option>
+                <mat-option value="2020">2020</mat-option>
+                <mat-option value="2021">2021</mat-option>
+            </mat-select>
+        </div>
+    </div>
+    <br/>
+    <div *ngIf="chartData?.length == 0" class="no-data uk-text-center uk-padding-large uk-text-meta">
+        <span>Not enough data to display</span>
+    </div>
+    <div id="expenses-pie-chart-wrapper">
+        <canvas id="expenses-pie-chart"></canvas>
+    </div>
+</div>

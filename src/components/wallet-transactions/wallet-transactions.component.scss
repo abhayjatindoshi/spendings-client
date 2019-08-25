@@ -1,0 +1,22 @@
+.transaction-row{
+    min-height: 60px;
+}
+.transaction-row .hover-icon{
+    display: none;
+    cursor: pointer;
+}
+.transaction-row.focus .hover-icon{
+    display: block;
+    animation: fade-in-left .5s;
+}
+
+@keyframes fade-in-left {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

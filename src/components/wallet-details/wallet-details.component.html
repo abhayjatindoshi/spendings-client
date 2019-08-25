@@ -1,0 +1,14 @@
+<div class="uk-text-center uk-padding">
+    <h4>{{selectedWallet?.name}}</h4>
+    <h1 style="font-size: 3rem">&#8377; {{selectedWallet?.balance}}</h1>
+    <div class="transaction-buttons">
+        <button mat-fab class="income-button uk-margin-small" (click)="addTransaction('INCOME')">
+            <mat-icon>add</mat-icon>
+        </button>
+        <span class="gap"></span>
+        <button mat-fab class="expense-button uk-margin-small" (click)="addTransaction('EXPENSE')">
+            <mat-icon>remove</mat-icon>
+        </button>
+    </div>
+</div>
+<hr/>

@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Imports */
+@import '../node_modules/uikit/dist/css/uikit.min.css';
+@import 'assets/themes/default.scss';
+
+/* Material icons */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(assets/fonts/material-icons.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global overrides */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+app-root {
+  height: 100%;
+}
+mat-form-field {
+  width: 100%;
+}
+
+/* Quick CSS selectors */
+.ec-disable-select {
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+  outline: 0;
+}
+.ec-cursor-pointer {
+  cursor: pointer;
+}
+.ec-width-50{
+  width: 50%;
+}
+.ec-title-margin-top{
+  margin-top: 64px;
+}
+
+@media (max-width: 599px){
+  .ec-title-margin-top{
+    margin-top: 56px;
+    margin-bottom: 56px;
+  }
+}
