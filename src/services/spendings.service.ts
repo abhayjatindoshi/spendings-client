@@ -203,7 +203,7 @@ export class SpendingsService {
           headers : new HttpHeaders({
             'X-EC-PORTAL': portal.id.toString(),
             'Content-Type': 'application/json',
-            'X-METHOD-OVERRIDE': 'PATCH'
+            'X-HTTP-METHOD-OVERRIDE': 'PATCH'
           })
         }
         this.http.post<Transaction>(this.API_URL_PREFEX + '/wallets/' + wallet.id + '/transactions/' + existingTransaction.id, JSON.stringify(updatedTransaction), httpOptions).subscribe(response => {
@@ -233,7 +233,7 @@ export class SpendingsService {
           headers : new HttpHeaders({
             'X-EC-PORTAL': portal.id.toString(),
             'Content-Type': 'application/json',
-            'X-METHOD-OVERRIDE': 'DELETE'
+            'X-HTTP-METHOD-OVERRIDE': 'DELETE'
           })
         }
         this.http.post<Transaction>(this.API_URL_PREFEX + '/wallets/' + wallet.id + '/transactions/' + transaction.id, null, httpOptions).subscribe(response => {
